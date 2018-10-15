@@ -1,0 +1,15 @@
+C:\Users\allah\source\repos\BOOM\BOOM\bin\Debug\BOOM.exe.config
+C:\Users\allah\source\repos\BOOM\BOOM\bin\Debug\BOOM.exe
+C:\Users\allah\source\repos\BOOM\BOOM\bin\Debug\BOOM.pdb
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.csprojAssemblyReference.cache
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\MainWindow.g.cs
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\App.g.cs
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM_MarkupCompile.cache
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM_MarkupCompile.lref
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\MainWindow.baml
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.g.resources
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.Properties.Resources.resources
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.csproj.GenerateResource.cache
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.csproj.CoreCompileInputs.cache
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.exe
+C:\Users\allah\source\repos\BOOM\BOOM\obj\Debug\BOOM.pdb

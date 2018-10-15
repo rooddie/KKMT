@@ -1,0 +1,47 @@
+﻿<Window x:Class="Sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="Sudoku" Height="573" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid x:Name="GridNum" HorizontalAlignment="Left" Height="529" Margin="0,10,0,0" VerticalAlignment="Top" Width="587">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="color_labrl" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="3" Width="192" Background="#FFFFCDCD"/>
+            <Label x:Name="color_labrl_Copy" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="176" Grid.RowSpan="3" Width="192" Background="#FFFFEFCD" Grid.Column="6" Grid.Row="6" BorderBrush="#FFDE2626"/>
+            <Label x:Name="color_labrl_Copy1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="3" Width="192" Background="#FFAFF1CA" Grid.Column="3"/>
+            <Label x:Name="color_labrl_Copy2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="3" Width="192" Background="#FFEAF9B5" Grid.Column="6"/>
+            <Label x:Name="color_labrl_Copy3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="4" Width="193" Background="#FFF0E8F9" Grid.Column="6" Grid.Row="3"/>
+            <Label x:Name="color_labrl_Copy4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="4" Width="192" Background="#FFFFE691" Grid.Row="3"/>
+            <Label x:Name="color_labrl_Copy5" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="4" Width="192" Background="#FFC5ECFF" Grid.Row="3" Grid.Column="3"/>
+            <Label x:Name="color_labrl_Copy6" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="3" Width="192" Background="#FFFFCCB5" Grid.Row="6"/>
+            <Label x:Name="color_labrl_Copy7" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="177" Grid.RowSpan="3" Width="192" Background="#FFB5FFEE" Grid.Row="6" Grid.Column="3"/>
+            <Button x:Name="btn_l" Content="LOW" Grid.Row="1" Grid.Column="4" Click="btn_l_Click"/>
+            <Button x:Name="btn_m" Content="MEDIUM" Grid.Row="4" Grid.Column="4" Click="btn_m_Click"/>
+            <Button x:Name="btn_h" Content="HARD" Grid.Row="7" Grid.Column="4" Click="btn_h_Click"/>
+        </Grid>
+    </Grid>
+</Window>

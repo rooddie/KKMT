@@ -1,0 +1,10 @@
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\bin\Debug\Пятнашки.exe.config
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\bin\Debug\Пятнашки.exe
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\bin\Debug\Пятнашки.pdb
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.FormGame15.resources
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.Properties.Resources.resources
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.csproj.GenerateResource.cache
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.csproj.CoreCompileInputs.cache
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.exe
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.pdb
+C:\Users\allah\source\repos\Пятнашки\Пятнашки\obj\Debug\Пятнашки.csprojAssemblyReference.cache

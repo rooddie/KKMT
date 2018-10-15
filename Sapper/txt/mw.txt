@@ -1,0 +1,284 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Windows.Media.Effects;
+using static BOOM.Sapper;
+
+
+namespace BOOM
+{
+    public partial class MainWindow : Window
+    {
+        Sapper SP = new Sapper();
+        //Random rand = new Random();
+
+        //private const int
+        //  MR = 10, // кол-во клеток по вертикали
+        //  MC = 10, // кол-во клеток по горизонтали
+        //  NM = 15; // кол-во мин
+
+        //private int nMin;  // кол-во найденных мин
+        //private int nFlag; // кол-во поставленных флагов
+
+        //// статус игры
+        //private int status;
+        //// 0 - начало игры,
+        //// 1 - игра,
+        //// 2 – результат
+        
+        //// игровое (минное) поле
+        //private int[,] Pole = new int[MR + 2, MC + 2];
+        //Button[,] buttons = new Button[MR + 2, MC + 2];
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            //Main_Grid.ShowGridLines = true;
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.RowDefinitions.Add(new RowDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+            //Main_Grid.ColumnDefinitions.Add(new ColumnDefinition());
+           
+
+            SP.NewGame();
+            Fill();
+        }
+
+
+
+        private void Fill()
+        {
+            //int row, col;    // индексы клетки
+            //int n = 0;       // количество поставленных мин
+            //int k;           // кол-во мин в соседних клетках
+
+            //// очистить поле
+            //for (row = 1; row <= MR; row++)
+            //    for (col = 1; col <= MC; col++)
+            //        Pole[row, col] = 0;
+
+            //// инициализация генератора случайных чисел
+            //Random rnd = new Random();
+
+            //// расставим мины
+            //do
+            //{
+            //    row = rnd.Next(MR) + 1;
+            //    col = rnd.Next(MC) + 1;
+
+            //    if (Pole[row, col] != 9)
+            //    {
+            //        Pole[row, col] = 9;
+            //        n++;
+            //    }
+            //}
+            //while (n != NM);
+
+            //// для каждой клетки вычислим кол-во 
+            //// мин в соседних клетках
+            //for (row = 1; row <= MR; row++)
+            //    for (col = 1; col <= MC; col++)
+            //        if (Pole[row, col] != 9)
+            //        {
+            //            k = 0;
+
+            //            if (Pole[row - 1, col - 1] == 9) k++;
+            //            if (Pole[row - 1, col] == 9) k++;
+            //            if (Pole[row - 1, col + 1] == 9) k++;
+            //            if (Pole[row, col - 1] == 9) k++;
+            //            if (Pole[row, col + 1] == 9) k++;
+            //            if (Pole[row + 1, col - 1] == 9) k++;
+            //            if (Pole[row + 1, col] == 9) k++;
+            //            if (Pole[row + 1, col + 1] == 9) k++;
+
+            //            Pole[row, col] = k;
+            //        }
+
+            //status = 0;      // начало игры
+            //nMin = 0;       // нет обнаруженных мин
+            //nFlag = 0;      // нет поставленных флагов
+
+            // заполнение кнопок
+            for (int i = 1; i <= MR; i++)
+                for (int j = 1; j <= MC; j++)
+                {
+                    buttons[i, j] = new Button();
+                    buttons[i, j].HorizontalContentAlignment = HorizontalAlignment.Center;
+                    buttons[i, j].VerticalContentAlignment = VerticalAlignment.Center;
+                    buttons[i, j].FontWeight = FontWeights.Bold;
+                    buttons[i, j].Background = Brushes.LightGray;
+                    buttons[i, j].Effect =
+                                        new DropShadowEffect
+                                        {
+                                            Color = new Color { A = 255, R = 55, G = 55, B = 255 },
+                                            Direction = 320,
+                                            ShadowDepth = 0,
+                                            Opacity = 1
+                                        };
+                    buttons[i, j].FontSize = 20;
+                    
+                    buttons[i, j].Click += Button_Click;
+                    buttons[i, j].MouseRightButtonDown += Button_Right_Click;
+                    Main_Grid.Children.Add(buttons[i, j]);
+                    Grid.SetRow(buttons[i, j], i-1);
+                    Grid.SetColumn(buttons[i, j], j-1);
+                    if (i == 0 || j == 0 || i == MR+1 || j == MC+1)
+                        buttons[i, j].Visibility = Visibility.Hidden;
+                }
+
+            
+        }
+        
+
+        // открытие соседних ячеек
+        private void open(int row, int col)
+        {
+            if (Pole[row, col] == 0)
+            {
+                color_content(row, col);
+                buttons[row, col].Effect = null;
+                buttons[row, col].IsEnabled = false;
+                Pole[row, col] = 100;
+                buttons[row, col].Content = "";
+                //buttons[row, col].Background = Brushes.White;
+                buttons[row, col].Click -= Button_Click;
+
+
+                open(row, col - 1);
+                open(row - 1, col);
+                open(row, col + 1);
+                open(row + 1, col);
+            }
+
+            else
+                if ((Pole[row, col] < 100) && (Pole[row, col] != -3))
+            {
+                color_content(row, col);
+                buttons[row, col].Effect = null;
+                buttons[row, col].IsEnabled = false;
+                Pole[row, col] += 100;
+                buttons[row, col].Content = Pole[row, col]-100;
+                //buttons[row, col].Background = Brushes.White;
+                buttons[row, col].Click -= Button_Click;
+            }
+        }
+
+        // Определяет цвет контента внутри ячейки, в зависимости от количества мин вокруг
+        private void color_content(int row, int col)
+        {
+            if (Pole[row, col] == 9) buttons[row, col].Background = Brushes.Red;
+
+            if (Pole[row, col] == 0) buttons[row, col].Foreground = Brushes.Black;
+            else if (Pole[row, col] == 1) buttons[row, col].Foreground = Brushes.Blue;
+            else if (Pole[row, col] == 2) buttons[row, col].Foreground = Brushes.Green;
+            else if (Pole[row, col] == 3) buttons[row, col].Foreground = Brushes.Red;
+            else if (Pole[row, col] == 4) buttons[row, col].Foreground = Brushes.HotPink;
+            else if (Pole[row, col] == 5) buttons[row, col].Foreground = Brushes.Indigo;
+            else if (Pole[row, col] == 6) buttons[row, col].Foreground = Brushes.LemonChiffon;
+            else if (Pole[row, col] == 7) buttons[row, col].Foreground = Brushes.Gold;
+            else if (Pole[row, col] == 8) buttons[row, col].Foreground = Brushes.Firebrick;   
+        }
+
+        // Клик правой кнопкой мыши. Установка флага
+        private void Button_Right_Click(object sender, MouseEventArgs e)
+        {
+            if ((sender as Button).Content == null)
+            {
+                (sender as Button).Tag = "checked";
+                BitmapImage bomb = new BitmapImage();
+                bomb.BeginInit();
+                bomb.UriSource = new Uri("/Resources/flag.png", UriKind.RelativeOrAbsolute);
+                bomb.EndInit();
+                (sender as Button).Content = new Image() { Source = bomb };
+                (sender as Button).Padding = new Thickness(5);
+                (sender as Button).Background = Brushes.AliceBlue;
+            }
+            else if ((sender as Button).Tag.ToString() == "checked")
+            {
+                (sender as Button).Content = null;
+                (sender as Button).Background = Brushes.LightGray;
+            }
+        }
+
+        // Клик левой кнопкой мыши
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Effect = null;
+            (sender as Button).IsEnabled = false;
+
+            if (status == 0) status = 1;
+
+            int row = 1 + Grid.GetRow((sender as Button)),
+                col = 1 + Grid.GetColumn((sender as Button));
+
+            if (Pole[row, col] == 9) gameOver();
+            else if (Pole[row, col] == 0) (sender as Button).Content = "";
+            else (sender as Button).Content = Pole[row, col];
+
+            color_content(row, col);
+
+            if (Pole[row, col] == 0)
+                open(row, col);
+        }
+
+        // Конец игры. Активируется при попадании на мину.
+        private void gameOver()
+        {
+            
+            for (int i = 1; i <= MR; i++)
+            {
+                for (int j = 1; j <= MC; j++)
+                {
+                    if (Pole[i, j] == 9)
+                    {
+                        BitmapImage bomb = new BitmapImage();
+                        bomb.BeginInit();
+                        bomb.UriSource = new Uri("/Resources/bomb.png", UriKind.RelativeOrAbsolute);
+                        bomb.EndInit();
+                        buttons[i, j].Content = new Image() { Source = bomb };
+                        buttons[i, j].Padding = new Thickness(10);
+                        buttons[i, j].Background = Brushes.Red;
+
+
+                        //buttons[i, j].IsEnabled = false;
+                    }
+                }
+            }
+            MessageBox.Show("Вы проиграли :(", "Сообщение");
+            clear_map();
+        }
+
+        // Очищает карту
+        private void clear_map()
+        {
+            Main_Grid.Children.Clear();
+        }
+    }
+}
