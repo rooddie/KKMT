@@ -1,5 +1,4 @@
 # KKMT
-My KKMT projects
 
 Calculator_1 — Калькулятор 1
 #
