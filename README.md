@@ -9,3 +9,5 @@ Fifteennashki — Пятнашки
 Sapper — Сапер
 #
 Sudoku — Судоку
+#
+WPF_LAUNCHER - Лаунчер всего вышеперечисленного
