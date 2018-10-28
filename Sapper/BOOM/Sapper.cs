@@ -21,7 +21,10 @@ namespace BOOM
         public static int[,] Pole;
         public static Button[,] buttons;
 
-        // устанавливает сложность
+        /// <summary>
+        /// Устанавливает сложность
+        /// </summary>
+        /// <param name="difficulty">Сложность</param>
         public static void set_difficulty(int difficulty)
         {
             if (difficulty == 1)
@@ -70,7 +73,10 @@ namespace BOOM
 
         }
 
-        // в зависимости от сложности, устанавливает дополнительные столбц и строки в таблице
+        /// <summary>
+        /// В зависимости от сложности, устанавливает дополнительные столбц и строки в таблице
+        /// </summary>
+        /// <param name="row_column_count">Количество строк и стобцов</param>
         public static void grid_make(int row_column_count)
         {
             while (row_column_count > 0)
@@ -87,7 +93,9 @@ namespace BOOM
             }
         }
 
-        // запуск новой игры
+        /// <summary>
+        /// Запуск новой игры
+        /// </summary>
         public static void NewGame()
         {
 
@@ -150,7 +158,11 @@ namespace BOOM
             set_flags = 0;      // нет поставленных флагов
         }
 
-        // открытие соседних клеток
+        /// <summary>
+        /// Открывает соседние клетки
+        /// </summary>
+        /// <param name="col">Номер строки клетки</param>
+        /// <param name="row">Номер столбца клетки</param>
         public static void open_cell(int row, int col)
         {
             if (Pole[row, col] == 0)
@@ -180,7 +192,11 @@ namespace BOOM
             }
         }
 
-        // раскрашивание контента
+        /// <summary>
+        /// Раскрашивает кнопки
+        /// </summary>
+        /// <param name="col">Номер строки клетки</param>
+        /// <param name="row">Номер столбца клетки</param>
         public static void color_content(int row, int col)
         {
             if (Pole[row, col] == 9) buttons[row, col].Background = Brushes.Red;
@@ -195,7 +211,9 @@ namespace BOOM
             else if (Pole[row, col] == 8) buttons[row, col].Foreground = Brushes.Firebrick;
         }
 
-        // Конец игры, активируется при попадании на мину.
+        /// <summary>
+        /// Взрыв на мине
+        /// </summary>
         public static void gameOver()
         {
             for (int i = 1; i <= map_rows; i++)
@@ -222,7 +240,9 @@ namespace BOOM
             System.Windows.Application.Current.Shutdown(); // закрывает приложение
         }
 
-        // проверка на победу
+        /// <summary>
+        /// Проверка на прохождение карты
+        /// </summary>
         public static void win()
         {
             int cnt = 0; // количество открытых клеток

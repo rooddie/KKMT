@@ -34,6 +34,11 @@ namespace Calculator_1
             }
         }
 
+        /// <summary>
+        /// Клик для всех кнопок
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Текст кнопки
@@ -90,8 +95,11 @@ namespace Calculator_1
                 }
             }
         }
-        
-        // Обновляем значение правого операнда
+
+
+        /// <summary>
+        /// Обновление значения правого операнда
+        /// </summary>
         private void UpVal_RightOp()
         {
             int num1 = Int32.Parse(left_op);

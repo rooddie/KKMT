@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!-- Локализация на русский -->
+    <v:String x:Key="App_Title">Ежедневник</v:String>
+    <v:String x:Key="MainMenu">Меню</v:String>
+    <v:String x:Key="WelcomeTitle">Добро пожаловать, ваши заметки ждут вас!</v:String>
+    <v:String x:Key="DeleteNote">Удалить</v:String>
+    <v:String x:Key="CreateEventButton">Создать заметку</v:String>
+    <v:String x:Key="SettingsButton">Настройки</v:String>
+    <v:String x:Key="LeftMenuHome">Домой</v:String>
+    <v:String x:Key="LeftMenuNotes">Заметки</v:String>
+    <v:String x:Key="LeftMenuCreateNote">Создать заметку</v:String>
+    <v:String x:Key="LeftMenuSettings">Настройки</v:String>
+    <v:String x:Key="NameNote">Заголовок</v:String>
+    <v:String x:Key="DescriptionNote">Описание</v:String>
+    <v:String x:Key="DateNote">Дата</v:String>
+    <v:String x:Key="TimeNote">Время</v:String>
+    <v:String x:Key="CreateNoteButton">Создать заметку</v:String>
+    <v:String x:Key="SettingsTheme">Тема</v:String>
+    <v:String x:Key="ThemeLight">Светлая</v:String>
+    <v:String x:Key="ThemeDark">Темная</v:String>
+    <v:String x:Key="SettingsWindowState">Режим окна</v:String>
+    <v:String x:Key="WindowStateWindowed">Оконный режим</v:String>
+    <v:String x:Key="WindowStateFullScreen">На весь экран</v:String>
+    <v:String x:Key="SettingsLanguage">Язык</v:String>
+    <v:String x:Key="LanguageRu">Русский язык</v:String>
+    <v:String x:Key="LanguageEn">Английский язык</v:String>
+</ResourceDictionary>

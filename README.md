@@ -9,3 +9,7 @@ Fifteennashki — Пятнашки
 Sapper — Сапер
 #
 Sudoku — Судоку
+#
+Diary - Ежедневник
+#
+WPF_LAUNCHER - Лаунчер всего вышеперечисленного

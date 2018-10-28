@@ -21,7 +21,9 @@ namespace BOOM
             MW = this;
         }
 
-        // заполнение сетки
+        /// <summary>
+        /// Заполнение сетки
+        /// </summary>
         public void Fill()
         {
             // заполнение кнопок
@@ -53,7 +55,11 @@ namespace BOOM
                 }
         }
 
-        // Клик правой кнопкой мыши. Установка флага.
+        /// <summary>
+        /// Установка флага
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void Button_Right_Click(object sender, MouseEventArgs e)
         {
             set_flags++;
@@ -82,7 +88,11 @@ namespace BOOM
             }
         }
 
-        // Клик левой кнопкой мыши
+        /// <summary>
+        /// Открытие ячейки
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).Effect = null;
@@ -104,13 +114,19 @@ namespace BOOM
             win();    
         }
 
-        // Очищает карту
+        /// <summary>
+        /// Очищает карту
+        /// </summary>
         public void clear_map()
         {
             Main_Grid.Children.Clear();
         }
 
-        // функция для кнопок, устанавливает сложность
+        /// <summary>
+        /// Выбор сложности
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void Choise_difficulty(object sender, RoutedEventArgs e)
         {
             Button btn = (sender as Button);

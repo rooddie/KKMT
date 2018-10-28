@@ -48,7 +48,9 @@ namespace Sudoku
             shuffle();
         }
 
-        // Перемешивание
+        /// <summary>
+        /// Перемешивание
+        /// </summary>
         private void shuffle()
         {
             for (int i = 0; i < 100; i++)
@@ -75,8 +77,10 @@ namespace Sudoku
                 }
             }
         }
-        
-        // Транспонирование всей таблицы
+
+        /// <summary>
+        /// Транспонирование таблицы
+        /// </summary>
         private void transposing()
         { 
             for (int i = 1; i < n; i++)
@@ -89,8 +93,10 @@ namespace Sudoku
                 }
             }
         }
-        
-        // Обмен двух строк в пределах одного района
+
+        /// <summary>
+        /// Обмен двух строк в пределах одного района
+        /// </summary>
         private void swap_rows_small()
         {
 
@@ -105,7 +111,9 @@ namespace Sudoku
             }
         }
 
-        // Обмен двух столбцов в пределах одного района
+        /// <summary>
+        /// Обмен двух столбцов в пределах одного района
+        /// </summary>
         private void swap_colums_small()
         {
             for (int i = 0; i < n; i++)
@@ -119,7 +127,9 @@ namespace Sudoku
             }
         }
 
-        // Обмен двух районов по горизонтали
+        /// <summary>
+        /// Обмен двух районов по горизонтали
+        /// </summary>
         private void swap_rows_area()
         {
             int[,] arr_rows_area = new int[3, n];
@@ -138,7 +148,9 @@ namespace Sudoku
             }
         }
 
-        // Обмен двух районов по вертикали
+        /// <summary>
+        /// Обмен двух районов по вертикали
+        /// </summary>
         private void swap_colums_area()
         {
             int[,] arr_colums_area = new int[n, 3];
@@ -156,8 +168,10 @@ namespace Sudoku
                 }
             }
         }
-
-        // Заполнение
+ 
+        /// <summary>
+        /// Заполнение
+        /// </summary>
         private void fill()
         {
             check_fill = true; // Для проверки, заполнена ли карта
@@ -179,13 +193,15 @@ namespace Sudoku
                     GridNum.Children.Add(buttons[i, j]);
                     Grid.SetRow(buttons[i, j], i);
                     Grid.SetColumn(buttons[i, j], j);
-                    buttons[i, j].Click += Button_Click;
+                    //buttons[i, j].Click += Button_Click;
                     buttons[i, j].Tag = Grid.GetRow(buttons[i, j]).ToString() + Grid.GetColumn(buttons[i, j]).ToString();
                 }
             }
         }
 
-        // Контекстное меню, открывающееся при нажатии на изначально пустую после заполнения кнопку
+        /// <summary>
+        /// Контекстное меню, открывающееся при нажатии на изначально пустую после заполнения кнопку
+        /// </summary>
         private ContextMenu GetContextMenu()
         {
             ContextMenu cm = new ContextMenu();
@@ -211,7 +227,11 @@ namespace Sudoku
             return cm;
         }
 
-        // Проверка допустимости вставляемого значения и его вставка
+        /// <summary>
+        /// Проверка допустимости вставляемого значения и его вставка
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void menu1_Click(object sender, RoutedEventArgs e)
         {
             MenuItem item = (MenuItem)sender;
@@ -302,7 +322,9 @@ namespace Sudoku
             win();
         }
 
-        // Проверка на прохождение игры
+        /// <summary>
+        /// Проверка на прохождение игры
+        /// </summary>
         private void win()
         {
             int check_win = 0;
@@ -325,7 +347,8 @@ namespace Sudoku
             }
         }
 
-        // удаление клетки
+        /// <summary>
+        /// У</summary>
         private void cell_removal()
         {
             int deleter_i = random.Next(9);
@@ -342,7 +365,10 @@ namespace Sudoku
             }
         }
 
-        // Очищение карты
+
+        /// <summary>
+        /// Очищение карты
+        /// </summary>
         private void clear()
         {
             GridNum.Children.Remove(btn_l);
@@ -361,12 +387,12 @@ namespace Sudoku
             }
         }
 
-        
-        // Кнопка с легким уровнем сложности
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //(sender as Button).Content = (sender as Button).Tag.ToString();
-        }
+
+        /// <summary>
+        /// Кнопка с легким уровнем сложности
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
 
         private void btn_l_Click(object sender, RoutedEventArgs e)
         {
@@ -376,7 +402,11 @@ namespace Sudoku
                 cell_removal();
         }
 
-        // Кнопка со средним уровнем сложности
+        /// <summary>
+        /// Кнопка со средним уровнем сложности
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void btn_m_Click(object sender, RoutedEventArgs e)
         {
             clear();
@@ -385,7 +415,11 @@ namespace Sudoku
                 cell_removal();
         }
 
-        // Кнопка с высоким уровнем сложности
+        /// <summary>
+        /// Кнопка с высоким уровнем сложности
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void btn_h_Click(object sender, RoutedEventArgs e)
         {
             clear();

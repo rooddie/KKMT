@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Diary.UserControlList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Diary"
+             mc:Ignorable="d" 
+             Background="#FFA9DDF1"
+             Width="Auto" Height="Auto">
+
+    <Grid x:Name="ListGrid" Width="1210" Height="660">
+        <Grid.DataContext>
+            <XmlDataProvider x:Name="NotesData" Source="notes.xml" XPath="Notes/Note" />
+        </Grid.DataContext>
+        <ScrollViewer x:Name="Viewer" VerticalScrollBarVisibility="Hidden" Margin="0,0,0,90">
+            <StackPanel x:Name="StPList"/>
+        </ScrollViewer>
+
+        <materialDesign:Badged x:Name="DelBtn" Height="50" Margin="0,590,0,0" Width="250" HorizontalAlignment="Center">
+            <Button Height="50" Width="250" Click="RemoveEvent_Click" Content="{DynamicResource DeleteNote}">
+            </Button>
+        </materialDesign:Badged>
+    </Grid>
+
+</UserControl>

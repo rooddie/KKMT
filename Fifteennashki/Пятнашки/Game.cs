@@ -20,8 +20,10 @@ namespace Пятнашки
             this.size = size;
             map = new int[size, size];
         }
-		
-		// Функция подготовки поля к игре
+
+        /// <summary>
+        /// Подготовка поля к игре
+        /// </summary>
         public void start()
         {
             for (int x = 0; x < size; x++)
@@ -36,8 +38,11 @@ namespace Пятнашки
             map[space_x, space_y] = 0;
         }
 
-        // Функция для осуществления сдвига
-		public void shift (int position)
+        /// <summary>
+        /// Сдвиг
+        /// </summary>
+        /// <param name="position">Позиция объекта</param>
+        public void shift (int position)
         {
             int x, y;
             position_to_coords(position, out x, out y);
@@ -51,7 +56,9 @@ namespace Пятнашки
             space_y = y;
         }
 
-        // Перемешивание кнопок случайным образом
+        /// <summary>
+        /// Перемещение кнопок случайным образом
+        /// </summary>
 		public void shift_random()
         {
             //shift(rand.Next(0, size * size));
@@ -76,7 +83,9 @@ namespace Пятнашки
             shift(coords_to_position(x, y));
         }
 
-		// Проверяет, пройдена ли игра
+        /// <summary>
+        /// Проверка на прохождение игры
+        /// </summary>
         public bool check_map()
         {
             if (!(space_x == size - 1 && space_y == size - 1))
@@ -90,7 +99,11 @@ namespace Пятнашки
             return true;
         }
 
-		// Функция для определения числа на кнопке
+        /// <summary>
+        /// Получение значения на кнопке
+        /// </summary>
+        /// <param name="position">Позиция объекта</param>
+
         public int get_number(int position)
         {
             int x, y;
@@ -100,7 +113,11 @@ namespace Пятнашки
             return map[x, y];
         }
 
-        // Перевод координат в позицию 
+        /// <summary>
+        /// Перевод координат в позицию
+        /// </summary>
+        /// <param name="x">Координата х</param>
+        /// <param name="y">Координата у</param>
 		private int coords_to_position(int x, int y)
         {
             if (x < 0) x = 0;
@@ -111,7 +128,12 @@ namespace Пятнашки
             return y * size + x;
         }
 
-		// Получение координат из позиции
+        /// <summary>
+        /// Получение координат из позиции
+        /// </summary>
+        /// <param name="position">Позиция объекта</param>
+        /// <param name="x">Координата х</param>
+        /// <param name="y">Координата у</param>
         private void position_to_coords(int position, out int x, out int y)
         {
             if (position < 0) position = 0;

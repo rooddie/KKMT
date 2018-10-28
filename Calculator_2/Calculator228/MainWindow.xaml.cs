@@ -20,6 +20,11 @@ namespace Calculator228
 
         }
 
+        /// <summary>
+        /// Вычисление ввеенного выражение
+        /// </summary>
+        /// <param name="sender">Объект по которому проиошел клик</param>
+        /// <param name="e">Событие</param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
