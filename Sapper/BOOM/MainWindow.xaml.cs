@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,6 +12,8 @@ namespace BOOM
     public partial class MainWindow : Window
     {
         public static MainWindow MW { get; private set; }
+
+        bool fill = false;
 
         public MainWindow()
         {
@@ -100,6 +102,32 @@ namespace BOOM
 
             int row = 1 + Grid.GetRow((sender as Button)),
                 col = 1 + Grid.GetColumn((sender as Button));
+
+            if (fill == false)
+            {
+                fill = true;
+                if (Pole[row, col] == 9)
+                {
+                    Pole[row, col] = 0;
+                    for (int row_b = 1; row_b <= map_rows; row_b++)
+                        for (int col_b = 1; col_b <= map_columns; col_b++)
+                            if (Pole[row_b, col_b] != 9)
+                            {
+                                int bombs_near = 0;
+
+                                if (Pole[row_b - 1, col_b - 1] == 9) bombs_near++;
+                                if (Pole[row_b - 1, col_b] == 9) bombs_near++;
+                                if (Pole[row_b - 1, col_b + 1] == 9) bombs_near++;
+                                if (Pole[row_b, col_b - 1] == 9) bombs_near++;
+                                if (Pole[row_b, col_b + 1] == 9) bombs_near++;
+                                if (Pole[row_b + 1, col_b - 1] == 9) bombs_near++;
+                                if (Pole[row_b + 1, col_b] == 9) bombs_near++;
+                                if (Pole[row_b + 1, col_b + 1] == 9) bombs_near++;
+
+                                Pole[row_b, col_b] = bombs_near;
+                            }
+                }
+            }
 
             if (Pole[row, col] == 9) gameOver();
             else if (Pole[row, col] == 0) {
