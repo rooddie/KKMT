@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +21,18 @@ namespace Sudoku
         
         // Изначальная карта
         int[,] matrix = {
+            {1, 2, 3, 4, 5, 6, 7, 8, 9},
+            {4, 5, 6, 7, 8, 9, 1, 2, 3},
+            {7, 8, 9, 1, 2, 3, 4, 5, 6},
+            {2, 3, 4, 5, 6, 7, 8, 9, 1},
+            {5, 6, 7, 8, 9, 1, 2, 3, 4},
+            {8, 9, 1, 2, 3, 4, 5, 6, 7},
+            {3, 4, 5, 6, 7, 8, 9, 1, 2},
+            {6, 7, 8, 9, 1, 2, 3, 4, 5},
+            {9, 1, 2, 3, 4, 5, 6, 7, 8},
+        };
+
+        int[,] matrix_win = {
             {1, 2, 3, 4, 5, 6, 7, 8, 9},
             {4, 5, 6, 7, 8, 9, 1, 2, 3},
             {7, 8, 9, 1, 2, 3, 4, 5, 6},
@@ -76,6 +88,7 @@ namespace Sudoku
                         break;
                 }
             }
+            matrix_win = matrix;
         }
 
         /// <summary>
@@ -243,81 +256,10 @@ namespace Sudoku
             int y = Grid.GetRow(btn);
             //lb1.Content = y.ToString() + " " + x.ToString();
 
-            string s;
-            int k = 0;
-            int box_x = 0, box_y = 0;
+            //string s;
+            //int k = 0;
 
-            // Проверка строки
-            for (int i = y; i < y+1; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    if (buttons[i, j].Content == null)
-                        s = "null";
-                    else if (j != x)
-                        s = buttons[i, j].Content.ToString();
-                    else
-                        s = "j";
-
-                    if (s == item.Header.ToString())
-                    {
-                        btn.Content = "";
-                        k++;
-                        break;
-                    }
-                }
-            }
-
-            // Проверка столбца
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = x; j < x+1; j++)
-                {
-                    if (buttons[i, j].Content == null)
-                        s = "null";
-                    else if (i != y)
-                        s = buttons[i, j].Content.ToString();
-                    else
-                        s = "j";
-
-                    if (s == item.Header.ToString())
-                    {
-                        btn.Content = "";
-                        k++;
-                        break;
-                    }
-                }
-            }
-
-            // Проверка области
-  
-            if (x < 3) box_x = 0;
-            else if (x < 6) box_x = 3;
-            else if (x < 9) box_x = 6;
-
-            if (y < 3) box_y = 0;
-            else if (y < 6) box_y = 3;
-            else if (y < 9) box_y = 6;
-
-            for (int i = box_y; i < box_y + 3; i++)
-            {
-                for (int j = box_x; j < box_x + 3; j++)
-                {
-                    if (buttons[i, j].Content == null) s = "null";
-                    else if (i != y) s = buttons[i, j].Content.ToString();
-                    else s = "j";
-
-                    if (s == item.Header.ToString())
-                    {
-                        btn.Content = "";
-                        k++;
-                        break;
-                    }
-                }
-            }
-
-            if (k == 0)
-                btn.Content = item.Header.ToString();
+            btn.Content = item.Header.ToString();
 
             win();
         }
@@ -332,23 +274,26 @@ namespace Sudoku
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (buttons[i, j] == null)
+                    if (Convert.ToInt32(buttons[i, j].Content) == matrix_win[i, j])
                     {
                         check_win++;
-                        break;
+                        //break;
                     }                   
                 }
             }
 
-            if (check_win == 81)
+            if (check_win == n*n)
             {
                 clear();
                 MessageBox.Show("Е БОЙ, ВЫ ПОБЕДИЛИ СЭР", "ПОБЕДА");
+                System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
             }
         }
 
         /// <summary>
-        /// У</summary>
+        /// Удаление кнопок
+        /// </summary>
         private void cell_removal()
         {
             int deleter_i = random.Next(9);
