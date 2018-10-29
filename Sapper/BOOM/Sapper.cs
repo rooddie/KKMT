@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,10 +8,12 @@ namespace BOOM
 {
     class Sapper
     {
+        static Random rnd = new Random();
+
         public static int
           map_rows = 10, // кол-во клеток по вертикали
           map_columns = 10, // кол-во клеток по горизонтали
-          number_bombs = 25, // кол-во мин
+          number_bombs = rnd.Next(Convert.ToInt32((map_rows * map_columns) * 0.18), Convert.ToInt32((map_rows * map_columns) * 0.22)), // кол-во мин от 20 до 25%
           difficulty = 0; // сложность
 
         public static int bombs_found;  // кол-во найденных мин
@@ -45,7 +47,7 @@ namespace BOOM
 
                 map_rows = 15;
                 map_columns = 15;
-                number_bombs = 50;
+                number_bombs = rnd.Next(Convert.ToInt32((map_rows * map_columns) * 0.18), Convert.ToInt32((map_rows * map_columns) * 0.22));
 
                 Pole = new int[map_rows + 2, map_columns + 2];
                 buttons = new Button[map_rows + 2, map_columns + 2];
@@ -61,7 +63,7 @@ namespace BOOM
 
                 map_rows = 25;
                 map_columns = 25;
-                number_bombs = 70;
+                number_bombs = rnd.Next(Convert.ToInt32((map_rows * map_columns) * 0.18), Convert.ToInt32((map_rows * map_columns) * 0.22));
 
                 Pole = new int[map_rows + 2, map_columns + 2];
                 buttons = new Button[map_rows + 2, map_columns + 2];
@@ -178,6 +180,12 @@ namespace BOOM
                 open_cell(row - 1, col);
                 open_cell(row, col + 1);
                 open_cell(row + 1, col);
+
+                open_cell(row - 1, col - 1);
+                open_cell(row - 1, col + 1);
+                open_cell(row + 1, col - 1);
+                open_cell(row + 1, col + 1);
+
             }
 
             else
@@ -252,7 +260,7 @@ namespace BOOM
                     if (buttons[i, j].Tag != null && buttons[i, j].Tag.ToString() == "open")
                         cnt++;
 
-            if (cnt == (map_rows * map_columns) - 1)
+            if (cnt == (map_rows * map_columns) - number_bombs)
             {
                 MessageBox.Show("Вы выиграли! :)                                                \n\nНайдено мин: "
                     + number_bombs.ToString() + "\n\nПоставлено флажков: " + set_flags.ToString(), "Победа");
